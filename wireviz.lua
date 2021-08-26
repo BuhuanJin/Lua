@@ -2,8 +2,7 @@ do
     local gv = require('gv')
 
     -- 以下函数用于检查某个元素是否在一个表里
-    -- 参考：http://stackoverflow.com/questions/2282444/how-to-check-if-a-
-                table-contains-an-element-in-lua
+    -- 参考：http://stackoverflow.com/questions/2282444/how-to-check-if-a-table-contains-an-element-in-lua
     function table.contains(table, element)
         for _, value in pairs(table) do
             if value == element then
