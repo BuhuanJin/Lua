@@ -94,9 +94,9 @@ do
                 local udp_streamb = ipdst .. udpdst .. ipsrc .. udpsrc
 
                 --如果已经处理过了，返回
-                --这个判断句 没有tostirng()，确认没问题？
-                --if streams[udp_streama] or streams[udp_streamb] then
-                if streams[tostring(udp_streama)] or streams[tostring(udp_streamb)] then
+                --这个判断句 没有tostirng()，确认没问题？曾 print(type(udp_streama)) 确认过，它们确实是字符串
+                --if streams[tostring(udp_streama)] or streams[tostring(udp_streamb)] then
+                if streams[udp_streama] or streams[udp_streamb] then
                     return 
                 end
 
