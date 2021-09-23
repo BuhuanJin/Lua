@@ -94,9 +94,9 @@ do
                 local udp_streamb = ipdst .. udpdst .. ipsrc .. udpsrc
 
                 --如果已经处理过了，返回
-                --这个判断句确认没问题？
-
-                if streams[udp_streama] or streams[udp_streamb] then
+                --这个判断句 没有tostirng()，确认没问题？
+                --if streams[udp_streama] or streams[udp_streamb] then
+                if streams[tostring(udp_streama)] or streams[tostring(udp_streamb)] then
                     return 
                 end
 
@@ -133,8 +133,11 @@ do
                 local s_tltip = gv.getv(tmp_s, "tooltip")
                 local d_tltip = gv.getv(tmp_d, "tooltip")
                 gv.setv(tmp_s, "tooltip", s_tltip .. "\n" .. streaminfo["psrc"])
-        	      添if ["pdst"判断
+        	   
+                -- 此处我自己添加了 if ["pdst"] 判断
+                if streaminfo["pdst"] then
                     gv.setv(tmp_d, "tooltip", d_tltip .. "\n" .. streaminfo["pdst"])
+                end
 
                 if streaminfo["istcp"] then
                     gv.setv(tmp_e, "color", "red")
